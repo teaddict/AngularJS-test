@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Expressions</title>
+</head>
+<body>
+<h1>Sample Application!</h1>
+<div ng-app = "" ng-init = "quantity = 1;cost = 30; student = {firstname:'Mike',lastname:'Tyson',year:2016};marks = [80,90,75,95,100]">
+         <!-- expressions bind application data to html , behaves like ng-bind-->
+         <!-- pure js expressions, output -->
+         <p>Hello {{student.firstname + " " + student.lastname}}!</p>
+         <p>Expense on Books : {{cost * quantity}} $</p>
+         <p>Year: {{student.year}}</p>
+         <p>Marks(Programming): {{marks[4]}}</p>
+</div>
+	<script src="angular.min.js" ></script>
+</body>
+</html>

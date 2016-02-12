@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		My First AngularJS Test
+	</title>
+</head>
+<body>
+	<h1>First Sample Application!</h1>
+	<!--  ng-app starts the Angular application -->
+	<div ng-app="">
+		<!-- ng-model creates our model variable -->
+		<p>Enter your name: <input type="text" ng-model="name"></p>
+		<!-- ng-bind binds our model to displayed html tag -->
+		<p>Moikka <span ng-bind="name"></span>!</p>
+	</div>
+
+	<script src="angular.min.js" ></script>
+</body>
+</html>

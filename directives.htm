@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS directives</title>
+</head>
+<body>
+	<h1>Sample Application!</h1>
+	<!-- ng-init initiliazes data for AngularJS app, we initialized JSON data -->
+	<div ng-app="" ng-init="countries=[{locale:'en-US',name:'United States'},{locale:'en-DE',name:'Germany'},{locale:'en-FI',name:'Finland'}]">
+		<p>List of countries with locale:</p>
+		<ol>
+		<!-- ng-repeat : works like foreach , it repeats for each item in colelction -->
+			<li ng-repeat='country in countries'>
+				{{'Country: ' +country.name + ', Locale:  ' + country.locale}}
+			</li>
+		</ol>
+		<script src="angular.min.js" ></script>
+	</div>
+</body>
+</html>
