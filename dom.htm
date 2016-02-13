@@ -1,0 +1,42 @@
+<html>
+   
+   <head>
+      <title>AngularJS DOM</title>
+   </head>
+   
+   <body>
+      <h2>Sample Application</h2>
+      <div ng-app = "">
+         
+         <table border = "0">
+            <tr>
+               <!--ng-disabled   disables a given control. -->
+               <td><input type = "checkbox" ng-model = "enableDisableButton">Disable Button</td>
+               <td><button ng-disabled = "enableDisableButton">Click Me!</button></td>
+            </tr>
+            
+            <tr>
+            <!--ng-show shows a given control. -->
+               <td><input type = "checkbox" ng-model = "showHide1">Show Button</td>
+               <td><button ng-show = "showHide1">Click Me!</button></td>
+            </tr>
+            
+            <tr>
+            <!--ng-hide hides a given control. -->
+               <td><input type = "checkbox" ng-model = "showHide2">Hide Button</td>
+               <td><button ng-hide = "showHide2">Click Me!</button></td>
+            </tr>
+            
+            <tr>
+            <!--ng-click   represents a AngularJS click event. -->
+               <td><p>Total click: {{ clickCounter }}</p></td>
+               <td><button ng-click = "clickCounter = clickCounter + 1">Click Me!</button></td>
+            </tr>
+         </table>
+         
+      </div>
+      
+      <script src = "angular.min.js"></script>
+      
+   </body>
+</html>

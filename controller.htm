@@ -1,0 +1,38 @@
+<html>
+   
+   <head>
+      <title>AngularJS Controller</title>
+      <script src = "angular.min.js"></script>
+   </head>
+   
+   <body>
+      <h2>Sample Application</h2>
+      <!-- created controller for our data -->
+      <div ng-app = "mainApp" ng-controller = "employerController">
+      	<!-- created data model -->
+         Enter first name: <input type = "text" ng-model = "employer.firstName"><br><br>
+         Enter last name: <input type = "text" ng-model = "employer.lastName"><br>
+         <br>
+         
+         You are entering: {{employer.Information()}}
+      </div>
+      <!-- our controller code -->
+      <script>
+         var mainApp = angular.module("mainApp", []);
+         
+         mainApp.controller('employerController', function($scope) {
+            $scope.employer = {
+               firstName: "John",
+               lastName: "Smith",
+             
+               Information: function() {
+                  var employerObject;
+                  employerObject = $scope.employer;
+                  return employerObject.firstName + " " + employerObject.lastName;
+               }
+            };
+         });
+      </script>
+      
+   </body>
+</html>

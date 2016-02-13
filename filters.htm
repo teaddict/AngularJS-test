@@ -1,0 +1,92 @@
+<html>
+   
+   <head>
+      <title>AngularJS Filters</title>
+      <script src = "angular.min.js"></script>
+   </head>
+   
+   <body>
+      <h2>Sample Application!</h2>
+      <div ng-app = "mainApp" ng-controller = "employerController">
+         <table border = "0">
+            <tr>
+               <td>Enter first name:</td>
+               <td><input type = "text" ng-model = "employer.firstName"></td>
+            </tr>
+            
+            <tr>
+               <td>Enter last name: </td>
+               <td><input type = "text" ng-model = "employer.lastName"></td>
+            </tr>
+            
+            <tr>
+               <td>Enter fees: </td>
+               <td><input type = "text" ng-model = "employer.fees"></td>
+            </tr>
+            
+            <tr>
+               <td>Enter overtime for days: </td>
+               <td><input type = "text" ng-model = "overtimeDay"></td>
+            </tr>
+         </table>
+         <br/>
+         
+         <table border = "0">
+            <tr>
+            <!-- converts a text to upper case text. -->
+               <td>Name in Upper Case: </td><td>{{employer.Information() | uppercase}}</td>
+            </tr>
+         
+            <tr>
+            <!-- converts a text to lower case text. -->
+               <td>Name in Lower Case: </td><td>{{employer.Information() | lowercase}}</td>
+            </tr>
+         
+            <tr>
+            <!-- formats text in a currency format. -->
+               <td>fees: </td><td>{{employer.fees | currency}}
+               </td>
+            </tr>
+				
+            <tr>
+               <td>Work overtime:</td>
+               <!-- filter the array to a subset of it based on provided criteria. -->
+               <!-- orders the array based on provided criteria. -->
+               <td>
+                  <ul>
+                     <li ng-repeat = "overtime in employer.overtimes | filter: overtimeDay |orderBy:'hours'">
+                        {{ overtime.day + ', hours:' + overtime.hour }}
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+         </table>
+         
+      </div>
+      
+      <script>
+         var mainApp = angular.module("mainApp", []);
+         
+         mainApp.controller('employerController', function($scope) {
+            $scope.employer = {
+               firstName: "John",
+               lastName: "Smith",
+               fees:5000,
+               
+               overtimes:[
+                  {day:'Monday',hour:5},
+                  {day:'Wednesday',hour:3},
+                  {day:'Friday',hour:1}
+               ],
+               
+               Information: function() {
+                  var employerObject;
+                  employerObject = $scope.employer;
+                  return employerObject.firstName + " " + employerObject.lastName;
+               }
+            };
+         });
+      </script>
+      
+   </body>
+</html>
