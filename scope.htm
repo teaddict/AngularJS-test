@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h2>Sample Application!</h2>
+<!-- We've set values to models in shapeController. -->
+<div ng-app="mainApp" ng-controller="shapeController">
+	<p>{{message}}<br/> {{type}}</p>
+
+	<div ng-controller="circleController">
+		<p>{{message}}<br/> {{type}}</p>		
+	</div>
+	<div ng-controller="squareController">
+		<p>{{message}}<br/> {{type}}</p>
+	</div>
+</div>
+<!-- Scope are controllers specific. If we defines nested controllers then child controller will inherit the scope of its parent controller. -->
+	<script src = "angular.min.js"></script>
+	<script>
+		var mainApp = angular.module("mainApp",[]);
+
+		mainApp.controller("shapeController",function($scope) {
+			$scope.message = "It is shapeController";
+			$scope.type = "Shape";
+		});
+
+		mainApp.controller("circleController",function($scope){
+			$scope.message = "It is circleController";
+			$scope.type = "Circle";
+		});
+
+		mainApp.controller("squareController",function($scope){
+			$scope.message = "It is squareController";
+			$scope.type = "Square";
+		});
+	</script>
+	
+</body>
+</html>

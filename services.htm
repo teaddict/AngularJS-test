@@ -1,0 +1,43 @@
+<!--Services are javascript functions and are responsible to do a specific tasks only. This makes them an individual entity which is maintainable and testable.  -->
+
+<!-- Using factory method, we first define a factory and then assign method to it. -->
+<!-- Using service method, we define a service and then assign method to it. We've also injected an already available service to it. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h2>Sample Application!</h2>
+<div ng-app="mainApp" ng-controller="calcController">
+	<p> Enter a number: <input type="number" ng-model="number" />
+	<button ng-click="square()">X<sup>2</sup></button></p>
+	<p>Result: {{result}}</p>
+</div>
+	<script src = "angular.min.js"></script>
+	<script>
+		var mainApp = angular.module("mainApp",[]);
+
+		mainApp.factory('MathService',function(){
+			var factory={};
+			factory.multiply = function(a,b) {
+				return  a * b;
+			}
+			return factory;
+		});
+
+		mainApp.service('CalcService',function(MathService){
+			this.square = function(a){
+				return MathService.multiply(a,a);
+			}
+		});
+
+		mainApp.controller('calcController',function($scope,CalcService){
+			$scope.square = function() {
+				$scope.result = CalcService.square ($scope.number);
+			}
+		});
+	</script>
+</body>
+</html>
